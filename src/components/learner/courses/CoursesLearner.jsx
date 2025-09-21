@@ -26,12 +26,12 @@ const CoursesLearner = () => {
             setIsLoading(true);
             try {
                 // Fetch all available courses
-                const allCoursesResponse = await axios.get('http://localhost:8080/api/course/getAllCourses', {
+                const allCoursesResponse = await axios.get('http://localhost:8084/api/course/getAllCourses', {
                     headers: { "Authorization": "Bearer " + token }
                 });
 
                 // Fetch enrolled courses for this learner
-                const enrolledCoursesResponse = await axios.get('http://localhost:8080/api/learner/courses', {
+                const enrolledCoursesResponse = await axios.get('http://localhost:8084/api/learner/courses', {
                     headers: { "Authorization": "Bearer " + token }
                 });
 
@@ -80,7 +80,7 @@ const CoursesLearner = () => {
         }
 
         try {
-            await axios.post(`http://localhost:8080/api/learner/enroll/${courseId}`, {}, {
+            await axios.post(`http://localhost:8084/api/learner/enroll/${courseId}`, {}, {
                 headers: { "Authorization": "Bearer " + token }
             });
 
